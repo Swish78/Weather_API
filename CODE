@@ -1,0 +1,25 @@
+# Importing python libraries
+import requests
+import json
+# API id
+api_id = "117ecd9f300ed0c40d2aa31a32950e93"
+# Accepting 
+CITY = input("Input Desired City's name:  ")
+
+# I used 'https://openweathermap.org/current' for API
+weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&units=imperial&APPID={api_id}")
+
+data = json.loads(weather_data.text)
+
+
+weather_description = data['weather'][0]['description']
+temperature = data['main']['temp']
+humidity = data['main']['humidity']
+wind_speed = data['wind']['speed']
+
+# Printing 
+print(f"Current weather in {CITY}:")
+print(f"Weather description: {weather_description}")
+print(f"Temperature: {temperature}K")
+print(f"Humidity: {humidity}%")
+print(f"Wind speed: {wind_speed}m/s")
