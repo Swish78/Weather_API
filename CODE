@@ -2,7 +2,7 @@
 import requests
 import json
 # API id
-api_id = "117ecd9f300ed0c40d2aa31a32950e93"
+
 # Accepting 
 CITY = input("Input Desired City's name:  ")
 
